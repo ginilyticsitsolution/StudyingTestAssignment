@@ -1,0 +1,58 @@
+
+
+<div class="container-fluid vh-100 body">
+  <div class="row justify-content-center h-100  align-items-center">
+    <div class="col-10 col-sm-8 col-md-5 col-lg-4 col-xl-3 m-auto">
+      <div class="card bg-ligin shadow border-0">
+        <div class="card-body p-4 p-lg-5">
+          <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <h3 class="mb-3">Register User</h3>
+        
+            <!-- Signup form -->
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control mb-3" formControlName="name" />
+              <div *ngIf="f['name'].touched && f['name'].invalid &&  f['name']" class="text-danger">
+                <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email address</label>
+              <input type="email" class="form-control mb-3" formControlName="email" />
+              <div *ngIf="f['email'].touched && f['email'].invalid &&  f['email']" class="text-danger">
+                <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+                <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control mb-3" formControlName="password" />
+              <div *ngIf="f['password'].touched && f['password'].invalid &&  f['password']" class="text-danger">
+                <div *ngIf="f['password'].errors && f['password'].errors['required']">Password is required.</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Confirm Password</label>
+              <input type="password" class="form-control mb-3" formControlName="password_confirmation" />
+              <div *ngIf="f['password_confirmation'].touched && f['password_confirmation'].invalid &&  f['password_confirmation']" class="text-danger">
+                <div *ngIf="f['password_confirmation'].errors && f['password_confirmation'].errors['required']">password Confirm is required.</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Register as</label>
+              <select class="form-control mb-3" formControlName="role">
+                <option value="user">user</option>
+                <option value="student" >student</option>
+              </select>
+              <div *ngIf="f['role'].touched && f['role'].invalid &&  f['role']" class="text-danger">
+                <div *ngIf="f['role'].errors && f['role'].errors['required']">Rode is required.</div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-block btn-primary" [disabled]="registerForm.invalid">Register User</button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

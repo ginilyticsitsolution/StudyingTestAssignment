@@ -1,0 +1,16 @@
+<div class="container-fluid body">
+    <div class="row text-center my-4 ">
+        <h5 class="card-title">Courses</h5>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4" *ngFor="let cou of course" (click)="selectedCourse(cou)">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">{{cou.name}}</p>
+                    <p class="card-text">{{cou.description}}</p>
+                    <a [routerLink]="['/course', cou.id]" class="btn btn-primary">View Playlist</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
