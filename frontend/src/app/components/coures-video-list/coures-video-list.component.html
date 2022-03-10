@@ -1,0 +1,17 @@
+<div class="container-fluid body">
+    <div class="row">
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4" *ngFor="let videos of videoList; let i = index">
+            <div class="card " >
+                <div class="card-body">
+                    <h5 class="card-title">Video {{i + 1}}</h5>
+                    <p class="card-text">{{videos.description}}</p>
+                    <div class="ratio ratio-16x9">
+                        <iframe [src]="parseVimeo(videos.url)"  frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>

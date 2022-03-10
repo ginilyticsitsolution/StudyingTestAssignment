@@ -1,0 +1,15 @@
+<div class="container-fluid body">
+    <div class="row">
+
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4" *ngFor="let cou of course" (click)="selectedCourse(cou)">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Course</h5>
+                <p class="card-text">{{cou.name}}</p>
+                <p class="card-text">{{cou.description}}</p>
+                <a [routerLink]="['/user', cou.id]" class="btn btn-primary">Open Coures</a>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -31,8 +31,8 @@ Route::group([
     Route::post('/course/delete', [CourseController::class, 'delete'])->name('/course/delete');
 
     Route::post('video/create', [VideosController::class, 'create'])->name('/video/crete');
-    Route::post('video/create', [VideosController::class, 'create'])->name('/video/crete');
-    Route::get('video/{course_id}', [VideosController::class, 'getVideos'])->name('/video');
+    //Route::post('video/create', [VideosController::class, 'create'])->name('/video/crete');
+    Route::get('video/{course_id}', [VideosController::class, 'getCourseVideos']);
     Route::get('video', [VideosController::class, 'getVideos'])->name('/video');
     Route::post('video/update', [VideosController::class, 'update'])->name('/video/update');
     Route::post('video/delete', [VideosController::class, 'delete'])->name('/video/delete');

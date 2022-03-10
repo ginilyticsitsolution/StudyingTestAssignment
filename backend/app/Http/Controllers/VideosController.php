@@ -35,11 +35,8 @@ class VideosController extends Controller
         return $response;
 
     }
-    public function getVideos($id) {
+    public function getVideos() {
         $videos = Video :: all();
-        if($id) {
-            $course = Video:: with('course')->get();
-        }
         return response()->json([
             "message" => "list of course videos",
             "status" => "success",
@@ -48,7 +45,16 @@ class VideosController extends Controller
             'course' => $course
         ], 201);
     }
-
+    public function getCourseVideos($course_id) {
+        $videos = Video :: where('course_id',$course_id)->get();
+        return response()->json([
+            "message" => "list of course videos",
+            "status" => "success",
+            "code" => 201,
+            "count" => $videos->count(),
+            'videos' => $videos
+        ], 201);
+    }
     public function update(Request $request)
     {
         $video_id = $request->id;

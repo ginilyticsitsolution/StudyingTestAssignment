@@ -12,6 +12,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AuthInterceptor } from './shared/auth.interceptor';
+import { CourseListComponent } from './components/course-list/course-list.component';
+import { CouresVideoListComponent } from './components/coures-video-list/coures-video-list.component';
+import { EmbedVideo } from 'ngx-embed-video';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,8 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     SigninComponent,
     SignupComponent,
     UserProfileComponent,
+    CourseListComponent,
+    CouresVideoListComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +31,7 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    EmbedVideo.forRoot(),
   ],
   providers: [
     {
