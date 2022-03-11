@@ -47,6 +47,7 @@
               <input formControlName="password" type="password" class="form-control">
               <div *ngIf="f['password'].touched && f['password'].invalid" class="text-danger">
                 <div *ngIf="f['password'].errors && f['password'].errors['required']">Password is required.</div>
+                <div *ngIf="f['password'].errors && f['password'].errors['minlength']">Password should be 6 character.</div>
               </div>
               <div class="text-danger">
                 <div>{{errors}}</div>
