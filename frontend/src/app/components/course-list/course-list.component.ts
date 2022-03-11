@@ -20,7 +20,7 @@ export class CourseListComponent implements OnInit {
 
   fatchCourse() {
     this.authService.fatchCourses().subscribe((courses: any) => {
-      this.course = courses.course;
+      this.course = courses.courses;
     })
   }
 

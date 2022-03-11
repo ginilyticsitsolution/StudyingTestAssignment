@@ -28,7 +28,9 @@ export class SigninComponent implements OnInit {
     // });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.hideNavBar();
+  }
 
   // onSubmit() {
   //   this.authService.signin(this.loginForm.value).subscribe(
@@ -80,4 +82,13 @@ export class SigninComponent implements OnInit {
       }
     );
   }
+
+  hideNavBar(){
+    let token = localStorage.getItem('auth_token');
+    
+    if(token != undefined){
+      this.router.navigate(['/course']);
+    }
+  }
+  
 }

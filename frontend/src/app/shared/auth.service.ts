@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 // User interface
 export class User {
@@ -19,29 +20,31 @@ export class AuthService {
 
   // User registration
   register(user: User): Observable<any> {
-    return this.http.post('http://127.0.0.1:8000/api/auth/register', user);
+    let url = environment.baseUrl +'auth/register';
+    return this.http.post( url, user);
   }
 
   // Login
   signin(form: any): Observable<any>{
-    let url = 'http://127.0.0.1:8000/api/auth/login';
+    let url = environment.baseUrl + 'auth/login';
     let headers = {'accept': '*/*', 'Content-Type':'application/json'};
     let opts:any = {headers:headers};
     return this.http.post(url, form);
   }
 
   fatchCourses(): Observable<any>{
-    let url = 'http://127.0.0.1:8000/api/auth/course';
+    let url = environment.baseUrl + 'auth/course';
     return this.http.get(url);
   }
 
   fatchCourseVideos(courseId: any): Observable<any>{
-    let url = 'http://127.0.0.1:8000/api/auth/video/' + courseId;
+    let url = environment.baseUrl + 'auth/video/' + courseId;
     return this.http.get(url);
   }
 
   // Access user profile
   profileUser(): Observable<any> {
-    return this.http.get('http://127.0.0.1:8000/api/auth/user-profile');
+    let url = environment.baseUrl + 'auth/user-profile';
+    return this.http.get(url);
   }
 }
