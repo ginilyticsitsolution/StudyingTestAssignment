@@ -12,83 +12,49 @@ import { AuthStateService } from '../../shared/auth-state.service';
 })
 
 export class SigninComponent implements OnInit {
-  //loginForm: FormGroup;
-  errors:any = null;
+  errors: any = null;
 
-  constructor(
-    public router: Router,
-    //public fb: FormBuilder,
-    public authService: AuthService,
-    private token: TokenService,
+  constructor(public router: Router, public authService: AuthService, private token: TokenService,
     private authState: AuthStateService
-  ) {
-    // this.loginForm = this.fb.group({
-    //   email: [],
-    //   password: [],
-    // });
-  }
+  ) { }
 
   ngOnInit() {
     this.hideNavBar();
   }
 
-  // onSubmit() {
-  //   this.authService.signin(this.loginForm.value).subscribe(
-  //     (result) => {
-  //       this.responseHandler(result);
-  //     },
-  //     (error) => {
-  //       this.errors = error.error;
-  //     },
-  //     () => {
-  //       this.authState.setAuthState(true);
-  //       this.loginForm.reset();
-  //       this.router.navigate(['profile']);
-  //     }
-  //   );
-  // }
-
-  // Handle response
-  responseHandler(data:any) {
-    this.token.handleData(data.access_token);
-  }
-
-
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)])
   });
-  
-  get f(){
+
+  get f() {
     return this.form.controls;
   }
-  
-  submit(){
-    //if(this.form == undefined)  return;
 
+
+  submit() {
     this.authService.signin(this.form.value).subscribe(
       (result) => {
-        this.responseHandler(result);
-        console.log(result);
-      },
-      (error) => {
-        this.errors = error.error.error;
-        console.log(this.errors)
-      },
-      () => {
-        this.authState.setAuthState(true);
-        this.form.reset();
-        this.router.navigate(['/course']);
+        if (result.access_token != undefined) {
+          this.authState.setAuthState(true);
+          localStorage.setItem('auth_token', result.access_token);
+          this.form.reset();
+          this.router.navigate(['/course']);
+
+        }
+        if (result.error != undefined) {
+          this.errors = result.error;
+
+        }
       }
     );
   }
 
-  hideNavBar(){
+  hideNavBar() {
     let token = localStorage.getItem('auth_token');
-    
-    if(token != undefined){
+
+    if (token != undefined) {
       this.router.navigate(['/course']);
     }
   }
-  
 }
