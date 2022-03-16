@@ -1,11 +1,12 @@
 <div class="container-fluid body">
     <div class="row">
-        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-            <div class="card ">
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4" *ngFor="let videos of videoList; let i = index">
+            <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Video 1</h5>
+                    <h5 class="card-title">Video {{i + 1}}</h5>
+                    <p>{{videos.description}}</p>
                     <div class="ratio ratio-16x9">
-                        <iframe id="intro" src='https://player.vimeo.com/video/656295102?h=8470424d6f' frameborder='0'
+                        <iframe [src]="videos.url | safe: 'resourceUrl'" frameborder='0' id="{{i}}"
                             webkitAllowFullScreen mozallowfullscreen allowFullScreen>
                         </iframe>
                     </div>

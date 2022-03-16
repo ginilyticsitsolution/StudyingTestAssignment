@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2022 at 02:43 PM
+-- Generation Time: Mar 11, 2022 at 11:29 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `studying`
+-- Database: `laravel_db`
 --
 
 -- --------------------------------------------------------
@@ -189,10 +189,15 @@ CREATE TABLE `videos` (
 
 INSERT INTO `videos` (`id`, `url`, `image`, `description`, `course_id`, `created_at`, `updated_at`, `title`) VALUES
 (1, 'https://player.vimeo.com/video/656295102?h=8470424d6f', 'text', 'php tutorial', 1, '2022-03-10 01:54:02', '2022-03-10 01:54:02', NULL),
+(2, 'https://player.vimeo.com/video/586843140?h=ce1d24ac05', 'text', 'php tutorial', 1, '2022-03-10 01:54:29', '2022-03-10 01:54:29', NULL),
 (3, 'https://player.vimeo.com/video/574485885?h=0e01e7ae8e', 'text', 'php tutorial', 2, '2022-03-10 01:54:29', '2022-03-10 01:54:29', NULL),
+(4, 'https://player.vimeo.com/video/457137949', 'text', 'php tutorial', 2, '2022-03-10 01:54:02', '2022-03-10 01:54:02', NULL),
 (5, 'https://player.vimeo.com/video/586822681?h=9dc3f5c2b0', 'text', 'php tutorial', 3, '2022-03-10 01:54:29', '2022-03-10 01:54:29', NULL),
+(6, 'https://player.vimeo.com/video/452782182', 'text', 'php tutorial', 3, '2022-03-10 01:54:02', '2022-03-10 01:54:02', NULL),
 (7, 'https://player.vimeo.com/video/452782182', 'text', 'php tutorial', 4, '2022-03-10 01:54:29', '2022-03-10 01:54:29', NULL),
-(9, 'https://player.vimeo.com/video/76979871', 'text', 'php tutorial', 5, '2022-03-10 01:54:29', '2022-03-10 01:54:29', NULL);
+(8, 'https://player.vimeo.com/video/452783496', 'text', 'php tutorial', 4, '2022-03-10 01:54:02', '2022-03-10 01:54:02', NULL),
+(9, 'https://player.vimeo.com/video/76979871', 'text', 'php tutorial', 5, '2022-03-10 01:54:29', '2022-03-10 01:54:29', NULL),
+(10, 'https://player.vimeo.com/video/457137949', 'text', 'php tutorial', 5, '2022-03-10 01:54:29', '2022-03-10 01:54:29', NULL);
 
 --
 -- Indexes for dumped tables

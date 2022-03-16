@@ -21,6 +21,7 @@
     "@vimeo/player": "^2.16.4",
     "bootstrap": "^5.1.3",
     "rxjs": "~7.5.0",
+    "safe-pipe": "^2.0.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Pipe } from '@angular/core';
 import { AuthService } from 'src/app/shared/auth.service';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import Player from "@vimeo/player";
 
@@ -11,41 +10,45 @@ import Player from "@vimeo/player";
 })
 export class CouresVideoListComponent implements OnInit {
 
+  _sanitizer: any;
 
-  constructor(private authService: AuthService, private sanitizer: DomSanitizer, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.fatchCourseVideos();
-    this.initPlayer();
   }
 
   videoList: any;
   error: boolean = false;
-  courseId: any;
 
   fatchCourseVideos() {
     let url = this.router.url;
     let courseId = url.replace('/course/', '');
     this.authService.fatchCourseVideos(courseId).subscribe((video: any) => {
       this.videoList = video.videos;
-      this.courseId = video.videos.course_id;
-      if(video.videos.length == 0){
+      this.initPlayer();
+      if (video.videos.length == 0) {
         this.error = true;
       }
     })
   }
 
-  parseVimeo() {
-    return this.sanitizer.bypassSecurityTrustUrl(this.videoList[0].url);
-  }
-
   private player: any;
 
-  private initPlayer(){
-    this.player = new Player('intro', {});
-    this.player.setVolume(0);
-    this.player.on('play', function() {
-        console.log('played the video!');
-    });
+  private initPlayer() {
+    if (this.videoList != undefined) {
+      setTimeout(() => {
+        for (let i = 0; i < this.videoList.length; i++) {
+          let n = i.toString();
+          let element = document.getElementById(n) as HTMLElement;
+          this.player = new Player(element);
+          this.player.setVolume(0);
+          this.player.on('play', function () {
+            console.log('played the video!');
+          });
+        }
+      }, 3000);
+    }
   }
 }

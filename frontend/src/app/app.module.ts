@@ -16,6 +16,7 @@ import { CourseListComponent } from './components/course-list/course-list.compon
 import { CouresVideoListComponent } from './components/coures-video-list/coures-video-list.component';
 import { AuthGuard } from './auth/auth.guard';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SafePipeModule } from 'safe-pipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    SafePipeModule,
   ],
   providers: [AuthGuard,
     {
