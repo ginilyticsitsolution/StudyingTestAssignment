@@ -1,13 +1,13 @@
 <div class="container-fluid body">
     <div class="row">
-        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4" *ngFor="let videos of videoList; let i = index">
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
             <div class="card ">
                 <div class="card-body">
-                    <h5 class="card-title">Video {{i + 1}}</h5>
-                    <p class="card-text">{{videos.description}}</p>
+                    <h5 class="card-title">Video 1</h5>
                     <div class="ratio ratio-16x9">
-                        <iframe [src]="parseVimeo(videos.url)" frameborder="0" allowfullscreen
-                         allow="autoplay; encrypted-media"></iframe>
+                        <iframe id="intro" src='https://player.vimeo.com/video/656295102?h=8470424d6f' frameborder='0'
+                            webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -17,14 +17,15 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" *ngIf="error">
 <div class="container error-container" *ngIf="error">
-	<div class="row align-items-center justify-content-center">
-		<div class="col-md-12 text-center">
-			<h1 class="big-text">Oops!</h1>
-			<h2 class="small-text">404 - PAGE NOT FOUND</h2>
-		</div>
-		<div class="col-md-6  text-center">
-			<p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
-			<a routerLink="/course" class="button button-dark-blue iq-mt-15 text-center">GOTO HOME PAGE</a>
-		</div>
-	</div>
+    <div class="row align-items-center justify-content-center">
+        <div class="col-md-12 text-center">
+            <h1 class="big-text">Oops!</h1>
+            <h2 class="small-text">404 - PAGE NOT FOUND</h2>
+        </div>
+        <div class="col-md-6  text-center">
+            <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.
+            </p>
+            <a routerLink="/course" class="button button-dark-blue iq-mt-15 text-center">GOTO HOME PAGE</a>
+        </div>
+    </div>
 </div>

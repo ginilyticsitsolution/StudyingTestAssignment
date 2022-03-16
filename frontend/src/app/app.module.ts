@@ -14,7 +14,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { CouresVideoListComponent } from './components/coures-video-list/coures-video-list.component';
-import { EmbedVideo } from 'ngx-embed-video';
 import { AuthGuard } from './auth/auth.guard';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
@@ -34,7 +33,6 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    EmbedVideo.forRoot(),
   ],
   providers: [AuthGuard,
     {

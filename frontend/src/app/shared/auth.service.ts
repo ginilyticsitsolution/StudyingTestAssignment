@@ -47,4 +47,9 @@ export class AuthService {
     let url = environment.baseUrl + 'auth/user-profile';
     return this.http.get(url);
   }
+
+  video(): Observable<any> {
+    let url = 'https://player.vimeo.com/api/player.js';
+    return this.http.get(url);
+  }
 }
